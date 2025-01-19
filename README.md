@@ -80,7 +80,7 @@ Ensure you have the following installed:
    ```
 
 4. **Access the Application**:
-   - Frontend: Open [http://localhost:5173/Login](http://localhost:5173/Login) in your browser.
+   - Frontend: Open [http://localhost:5173](http://localhost:5173) in your browser.
    - Backend: The server runs on [http://localhost:8000](http://localhost:8000).
 
 
