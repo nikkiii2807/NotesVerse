@@ -57,7 +57,7 @@ Ensure you have the following installed:
    Create a `.env` file and add the following variables:
    ```env
    MONGO_URI=<your-mongodb-connection-string>
-   PORT=5000
+   PORT=8000
    JWT_SECRET=<your-jwt-secret>
    ```
    Start the server:
