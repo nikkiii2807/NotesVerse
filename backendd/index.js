@@ -14,14 +14,26 @@ const jwt=require('jsonwebtoken')
 const {authenticateToken}=require("./utilities")
 app.use(express.json());
 
+const allowedOrigins = [
+    'http://localhost:5173', // Local development URL
+    'https://notesverse-frontend.onrender.com', // Deployed frontend URL
+];
+
 app.use(
     cors({
-        origin: "http://localhost:5173", // Your frontend URL
+        origin: (origin, callback) => {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowed by CORS'));
+            }
+        },
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization'],
-        credentials: false // Change this to false since we're not using cookies
+        credentials: false, // Set to true if you plan to use cookies
     })
 );
+
 
 app.get("/", (req,res)=>{
     res.json({data:"hello"});
